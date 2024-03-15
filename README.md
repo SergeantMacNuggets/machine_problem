@@ -1,5 +1,5 @@
 <h1>Follow this set of commands if you're the leader of the group</h1>
-<img height="100px" src="https://media.tenor.com/XspBG6ecOnUAAAAM/warhammer-warhammer40k.gif">
+<div align="center"><img height="100px" src="https://media.tenor.com/XspBG6ecOnUAAAAM/warhammer-warhammer40k.gif"></div>
 <h2>1. Install git form this link:</h2>
 <a href="https://git-scm.com/downloads"> Git Download </a>
 
