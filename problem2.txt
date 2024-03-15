@@ -1,0 +1,33 @@
+Problem #2:
+You are given a string s of length n, and an integer k. You are tasked to find the longest
+subsequence repeated k times in string s.
+A subsequence is a string that can be derived from another string by deleting some or no
+characters without changing the order of the remaining characters. Capital letters shall not
+be distinguished from small letters.
+A subsequence seq is repeated k times in the string s if seq * k is a subsequence of s, where
+seq * k represents a string constructed by concatenating seq k times.
+For example, &quot;bba&quot; is repeated 2 times in the string &quot;bababcba&quot;, because the string
+&quot;bbabba&quot;, constructed by concatenating &quot;bba&quot; 2 times, is a subsequence of the string
+&quot;bababcba&quot;.
+Return the longest subsequence repeated k times in string s. If multiple such subsequences
+are found, return the lexicographically largest one. If there is no such subsequence, return
+an empty string.
+Example 1:
+
+Input: s = &quot;letsleetcode&quot;, k = 2
+Output: &quot;let&quot;
+Explanation: There are two longest subsequences repeated 2 times: &quot;let&quot; and &quot;ete&quot;.
+&quot;let&quot; is the lexicographically largest one.
+Example 2:
+Input: s = &quot;bb&quot;, k = 2
+Output: &quot;b&quot;
+Explanation: The longest subsequence repeated 2 times is &quot;b&quot;.
+Example 3:
+Input: s = &quot;ab&quot;, k = 2
+Output: &quot;&quot;
+Explanation: There is no subsequence repeated 2 times. Empty string is returned.
+
+Constraints:
+ n == length of the string
+ 2 &lt;= n, k &lt;= 2000
+ 2 &lt;= n &lt; k * 8
