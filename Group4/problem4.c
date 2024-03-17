@@ -22,17 +22,22 @@ int main() {
     int nums[] = {1,2,1,2,3};
     int numsSize=sizeof(nums)/sizeof(nums[0]);
     int k = 2;
-    subArrays(nums,numsSize,k);
+    int output = subArrays(nums,numsSize,k);
     //diffInt(nums,0,2,k);
+    printf("Output is %d\n",output);
 
     return 0;
 }
 
 int subArrays(int *nums,int numsSize,int k) {
     int output=0,i=0,x=k;
+    if(k==1) {
+        output=numsSize;
+        return output;
+    }
 
     //Read array from index[0] to index[k]
-    while(i<numsSize) {
+    while(i<=numsSize && k < 7) {
         //Check if index[k] has reach the end of array
         if(x==numsSize+1) {
             //If true perform a recursion
