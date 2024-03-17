@@ -37,7 +37,7 @@ int subArrays(int *nums,int numsSize,int k) {
     }
 
     //Read array from index[0] to index[k]
-    while(i<=numsSize && k < 7) {
+    while(i<=numsSize && k < numsSize+1) {
         //Check if index[k] has reach the end of array
         if(x==numsSize+1) {
             //If true perform a recursion
