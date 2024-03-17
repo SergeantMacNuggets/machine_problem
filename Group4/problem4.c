@@ -12,44 +12,61 @@ A subarray is a contiguous part of an array.
 /*Example 1:
     Input: nums = [1,2,1,2,3], k = 2
     Output: 7*/
-int diffInt(int* nums,int i,int j,int k) {
-
+int differentInt(int *nums,int k) {
+    int diff=1,j;
+    for(int i=1;i<k;i++) {
+        for(j=0;j<i;j++) {
+            if(nums[i]==nums[j])
+                break;
+        }
+        if(i==j)
+            diff++;
+    }
+    return diff;
 }
 
-int subArrays(int* ,int, int );
+int subArrays(int* ,int, int,int,int );
 
 int main() {
-    int nums[] = {1,2,1,2,3};
+    int nums[] = {1,3,1,2,1,4,5};
     int numsSize=sizeof(nums)/sizeof(nums[0]);
-    int k = 2;
-    int output = subArrays(nums,numsSize,k);
-    //diffInt(nums,0,2,k);
-    printf("Output is %d\n",output);
+    int k = 4;
+    int perm=k;
+    int output = 0;
+    int result = subArrays(nums,numsSize,k,perm,output);
+    printf("Output is %d\n",result);
 
     return 0;
 }
-
-int subArrays(int *nums,int numsSize,int k) {
-    int output=0,i=0,x=k;
+int subArrays(int *nums,int numsSize,int k,int perm,int output) {
+    int i=0,x=k,y,diff;
+    int *temp_arr=(int *)malloc(numsSize*sizeof(int));
     if(k==1) {
         output=numsSize;
         return output;
     }
-
     //Read array from index[0] to index[k]
     while(i<=numsSize && k < numsSize+1) {
         //Check if index[k] has reach the end of array
         if(x==numsSize+1) {
-            //If true perform a recursion
-            subArrays(nums,numsSize,k+1);
+            //If true check if k is equal to numsSize
+            if(k==numsSize) {
+                return output;
+            }
+            //If false perform a recursion
+            subArrays(nums,numsSize,k+1,perm,output);
             break;
         }
-        for(int j=i;j<x && x<=numsSize;j++) {
-            printf("%d ", nums[j]);
+        for(int j=i,y=0;j<x && x<=numsSize;y++,j++) {
+            temp_arr[y]=nums[j];
+            printf("%d ",temp_arr[y]);
         }
-        printf("\n");
+        printf("\n",k);
+        diff = differentInt(temp_arr,k);
+        if(diff==perm) {
+            output+=1;
+        }
         x++;
         i++;
     }
-    return output;
 }
