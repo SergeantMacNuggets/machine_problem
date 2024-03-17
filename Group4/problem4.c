@@ -28,9 +28,9 @@ int differentInt(int *nums,int k) {
 int subArrays(int* ,int, int,int,int );
 
 int main() {
-    int nums[] = {1,3,1,2,1,4,5};
+    int nums[] = {1,2,1,2,3};
     int numsSize=sizeof(nums)/sizeof(nums[0]);
-    int k = 4;
+    int k = 2;
     int perm=k;
     int output = 0;
     int result = subArrays(nums,numsSize,k,perm,output);
