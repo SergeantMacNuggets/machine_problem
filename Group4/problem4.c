@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct userInput {
+    int *nums;
+    int numsSize;
+    int k;
+}userInput;
+
 int differentInt(int *nums,int k) {
     int diff=1,j;
     for(int i=1;i<k;i++) {
@@ -26,10 +32,17 @@ int subArrays(int *nums,int numsSize,int k) {
     return __rec__fuc(nums,numsSize,k,perm,output);
 }
 int main() {
-    int nums[] = {1,2,1,2,3};
-    int numsSize=sizeof(nums)/sizeof(nums[0]);
-    int k = 2;
-    int result = subArrays(nums,numsSize,k);
+    userInput u1;
+    printf("How many integer would you like to add? ");
+    scanf("%d",&u1.numsSize);
+    u1.nums=(int *)malloc(u1.numsSize*sizeof(int));
+    printf("Input %d numbers:\n",u1.numsSize);
+    for(int i=0;i<u1.numsSize;i++) {
+        scanf("%d",&u1.nums[i]);
+    }
+    printf("How many different integers to be scanned? ");
+    scanf("%d",&u1.k);
+    int result = subArrays(u1.nums,u1.numsSize,u1.k);
     printf("Output is %d\n",result);
 
     return 0;
