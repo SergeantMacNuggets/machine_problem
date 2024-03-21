@@ -105,7 +105,7 @@ int main() {
     //The result is the output of how many subarray form with exactly k different integers
     int result = subArrays(u1.nums,u1.numsSize,u1.k);
     //Print the output
-    printf("\nOutput is %d\n",result);
+    printf("\nA total of %d subarrays formed with exactly %d different integers\n",result,u1.k);
 
     return 0;
 }
