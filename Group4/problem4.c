@@ -93,7 +93,7 @@ int main() {
 
     //Start the input of number in an array with constraints
     for(int i=0;i<u1.numsSize;i++) {
-        u1.nums[i]=indexConstraints(u1.nums,u1.numsSize,i);
+        u1.nums[i]=indexConstraints(0,u1.numsSize,i);
     }
     //Ask how many integer to scan of the subArrays k=x
     u1.k=indexConstraints(u1.k,u1.numsSize,-1);
