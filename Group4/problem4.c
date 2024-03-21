@@ -22,6 +22,7 @@ int differentInt(int *nums,int k) {
 }
 
 int __rec__fuc(int* ,int, int, int, int);
+void displayArr(int *,int);
 
 int subArrays(int *nums,int numsSize,int k) {
     int perm=k;
@@ -64,18 +65,24 @@ int __rec__fuc(int *nums,int numsSize,int k,int perm,int output) {
             __rec__fuc(nums,numsSize,k,perm+1,output);
             break;
         }
-        printf("| ");
         for(int j=i,y=0;j<x && x<=numsSize;y++,j++) {
             temp_arr[y]=nums[j];
-            printf("%d | ",temp_arr[y]);
         }
-        printf("\n");
         diff = differentInt(temp_arr,perm);
         if(diff==k) {
+            displayArr(temp_arr,perm);
             output+=1;
         }
         x++;
         i++;
     }
+}
+
+void displayArr(int *arr,int perm) {
+    printf("| ");
+    for(int i=0;i<perm;i++) {
+        printf("%d | ",arr[i]);
+    }
+    printf("\n");
 }
 
