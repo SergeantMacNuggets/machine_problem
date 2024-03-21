@@ -38,6 +38,7 @@ int main() {
     u1.nums=(int *)malloc(u1.numsSize*sizeof(int));
     printf("Input %d numbers:\n",u1.numsSize);
     for(int i=0;i<u1.numsSize;i++) {
+        printf("nums[%d] = ",i);
         scanf("%d",&u1.nums[i]);
     }
     printf("How many different integers to be scanned? ");
@@ -47,7 +48,6 @@ int main() {
 
     return 0;
 }
-
 int __rec__fuc(int *nums,int numsSize,int k,int perm,int output) {
     int i=0,diff,x=perm;
     int *temp_arr=(int *)malloc(numsSize*sizeof(int));
@@ -63,9 +63,10 @@ int __rec__fuc(int *nums,int numsSize,int k,int perm,int output) {
             __rec__fuc(nums,numsSize,k,perm+1,output);
             break;
         }
+        printf("| ");
         for(int j=i,y=0;j<x && x<=numsSize;y++,j++) {
             temp_arr[y]=nums[j];
-            printf("%d ",temp_arr[y]);
+            printf("%d | ",temp_arr[y]);
         }
         printf("\n");
         diff = differentInt(temp_arr,perm);
