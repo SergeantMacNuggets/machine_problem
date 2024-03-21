@@ -26,7 +26,7 @@ int indexContraints(int n,int numsSize,int i) {
         while(true) {
             printf("nums[%d] = ",i);
             scanf("%d",&n);
-            if(1>n||n>numsSize)
+            if(n < 1)
                 printf("Nums[i] must be > or = to 1 and < or = to size of the array\n");
             else
                 break;
@@ -36,7 +36,8 @@ int indexContraints(int n,int numsSize,int i) {
         while(true) {
             printf("How many different integers to be scanned? k = ");
             scanf("%d",&n);
-            if(1 > n || n > numsSize)
+            //variable k
+            if(n > numsSize)
                 printf("k must be > or = to 1 and < or = to size of the array\n");
             else 
                 break;
