@@ -120,24 +120,22 @@ int __rec__fuc(int *nums,int numsSize,int k,int perm,int output) {
         //Check if index[k] has reach the end of array
         if(x==numsSize+1) {
             //If true check if k is equal to numsSize
-            if(perm==numsSize) {
+            if(perm==numsSize)
                 return output;
-            }
             //If false perform a recursion
             __rec__fuc(nums,numsSize,k,perm+1,output);
             break;
         }
         //Scan all the index inside of the num
-        for(int j=i,y=0;j<x && x<=numsSize;y++,j++) {
-            //The scanned integers are distributed to the temp_arr which is the sub array
+        //The scanned integers are distributed to the temp_arr which is the sub array
+        for(int j=i,y=0;j<x && x<=numsSize;y++,j++)
             temp_arr[y]=nums[j];
-        }
         //Read the temp_arr and how many different integers inside
         diff = differentInt(temp_arr,perm);
         //If the amount of different integers equal to k
         if(diff==k) {
             //Output will be incremented
-            output+=1;
+            output++;
             //Display the sub arrays
             displaySubArr(temp_arr,perm,output);
         }
@@ -149,34 +147,28 @@ void displaySubArr(int *arr,int perm,int output) {
     //If output is < 0 then display the array in the terminal
     if(output < 0) {
         printf("Arrays:\n");
-        for(int u=0;u<perm;u++) {
+        for(int u=0;u<perm;u++)
             printf(" ___");
-        }
         printf("\n");
         printf("| ");
-        for(int i=0;i<perm;i++) {
+        for(int i=0;i<perm;i++)
             printf("%d | ",arr[i]);
-        }
         printf("\n");
-        for(int u=0;u<perm;u++) {
+        for(int u=0;u<perm;u++)
             printf("*---");
-        }
         printf("*\n\n");
     }
     //If output is >= 0 then display the subarrays in the terminal
     else {
-        for(int u=0;u<perm;u++) {
+        for(int u=0;u<perm;u++)
             printf(" ___");
-        }
         printf("\n");
         printf("| ");
-        for(int i=0;i<perm;i++) {
+        for(int i=0;i<perm;i++)
             printf("%d | ",arr[i]);
-        }
         printf("= subArray%d\n",output);
-        for(int u=0;u<perm;u++) {
+        for(int u=0;u<perm;u++)
             printf("*---");
-        }
         printf("*\n");
     }
 }
